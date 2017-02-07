@@ -87,3 +87,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# PyYAML stuff
+PyYAML-3.12/

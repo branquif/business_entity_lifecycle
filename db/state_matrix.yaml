@@ -1,0 +1,69 @@
+state-matrix:
+    event-code  : LTS
+    event-name  : Licença para Tratamento de Saúde
+    previdentiary-regime-code: RPPS
+    matrix-code : LTS-RPPS
+    valid-from  : 2015-01-01
+    valid-until : 2999-12-31
+    states          :
+        -   code    : NV
+            name    : Novo
+        -   code    : AGINFRU
+            name    : Aguardando início de fruição
+        -   code    : EMAN
+            name    : Em andamento
+        -   code    : INTCONC
+            name    : Interrompido evento de vínculo concedido 
+        -   code    : INTOUT
+            name    : Interrompido por outro evento de vínculo
+        -   code    : INATO
+            name    : Insubsistência de Ato
+        -   code    : CES
+            name    : Cessado
+    events  :
+        - {code     :   NV-CONC,        name    : Licença concedida com o período solicitado,   orig-state-code : NV, dest-state-code   : CONC, form_fields-code    : NV-CONC}
+        - {code     :   NV-CONC,        name    : Licença concedida com o período maior que o solicitado,   orig-state-code : NV, dest-state-code   : CONC, form_fields-code    : NV-CONC}
+        - {code     :   NV-CONCME,      name    : Licença concedida com o período menor que o solicitado,   orig-state-code : NV, dest-state-code   : CONCME, form_fields-code  : NV-CONCME}
+        - {code     :   NV-AGPB,        name    : Aguardando publicação de licença, orig-state-code : NV, dest-state-code   : AGPB, form_fields-code    : NV-AGPB}
+        - {code     :   NV-NEGAGREC,        name    : Licença negada aguardando solicitação de reconsideração,  orig-state-code : NV, dest-state-code   : NEGAGREC, form_fields-code    : NV-NEGAGREC}
+        - {code     :   AGPB-AGPB,      name    : Correção de dados,    orig-state-code : AGPB, dest-state-code : AGPB, form_fields-code    : AGPB-AGPB}
+        - {code     :   AGPB-CONC,      name    : Licença concedida,    orig-state-code : AGPB, dest-state-code : CONC, form_fields-code    : AGPB-CONC}
+        - {code     :   AGPB-CONCME,        name    : Licença concedida com período menor que o solicitado, orig-state-code : AGPB, dest-state-code : CONCME, form_fields-code  : AGPB-CONCME}
+        - {code     :   AGPB-NEGAGREC,      name    : Licença negada aguardando solicitação de reconsideração,  orig-state-code : AGPB, dest-state-code : NEGAGREC, form_fields-code    : AGPB-NEGAGREC}
+        - {code     :   CONC-CONC,      name    : Correção de dados,    orig-state-code : CONC, dest-state-code : CONC, form_fields-code    : CONC-CONC}
+        - {code     :   CONC-CONC,      name    : Retificação de Licença concedida com período maior que o solicitado,  orig-state-code : CONC, dest-state-code : CONC, form_fields-code    : CONC-CONC}
+        - {code     :   CONC-CES,       name    : Fim do período do evento, orig-state-code : CONC, dest-state-code : CES, form_fields-code : CONC-CES}
+        - {code     :   CONC-INTCONCSO,         name    : Reassunção,   orig-state-code : CONC, dest-state-code : INTCONCSO, form_fields-code   : CONC-INTCONCSO}
+        - {code    :     CONC-INTOUT,       name    : Licença interrompida por outro evento de vínculo, orig-state-code :   CONC, dest-state-code: INTOUT, form-fields-code: CONC-INTOUT}
+        - {code    :     CONCME-CONCME,     name    : Correção de dados, orig-state-cod :   CONCME, dest-state-code: CONCME, form-fields-code: CONCME-CONCME}
+        - {code    :     CONCME-CES,        name    : Fim do período do evento, orig-state-code :   CONCME, dest-state-code: CES, form-fields-code: CONCME-CES}
+        - {code    :     CONCME-INTOUT,     name    : Licença interrompida por outro evento de vínculo, orig-state-code :   CONCME, dest-state-code: INTOUT, form-fields-code: CONCME-INTOUT}
+        - {code    :     CONCME-INTCONCME,  name    : Reassunção, orig-state-co :   CONCME, dest-state-code: INTCONCME, form-fields-code: CONCME-INTCONCME}
+        - {code    :     NEGAGREC-NEGAGREC, name    : Correção de dados, orig-state-cod :   NEGAGREC, dest-state-code: NEGAGREC, form-fields-code: NEGAGREC-NEGAGREC}
+        - {code    :     NEGAGREC-NEGSEREC, name    : Licença negada sem solicitação de reconsideração, orig-state-code :   NEGAGREC, dest-state-code: NEGSEREC, form-fields-code: NEGAGREC-NEGSEREC}
+        - {code    :     INTCONCSO-INTCONCSO,   name    : Correção de dados, orig-state-cod :   INTCONCSO, dest-state-code: INTCONCSO, form-fields-code: INTCONCSO-INTCONCSO}
+        - {code    :     INTCONCSO-CES,     name    : Fim do período do evento, orig-state-code :   INTCONCSO, dest-state-code: CES, form-fields-code: INTCONCSO-CES}
+        - {code    :     INTCONCME-INTCONCME,   name    : Correção de dados, orig-state-cod :   INTCONCME, dest-state-code: INTCONCME, form-fields-code: INTCONCME-INTCONCME}
+        - {code    :     INTCONCME-CES,     name    : Fim do período do evento, orig-state-code :   INTCONCME, dest-state-code: CES, form-fields-code: INTCONCME-CES}
+        - {code    :     INTOUT-INTOUT,     name    : Correção de dados do outro evento, orig-state-cod :   INTOUT, dest-state-code: INTOUT, form-fields-code: INTOUT-INTOUT}
+        - {code    :     INTOUT-CES,        name    : Fim do período do evento, orig-state-code :   INTOUT, dest-state-code: CES, form-fields-code: INTOUT-CES}
+    form-fields :
+        - {code : dt-ini-licenca, name : data de inicio licença', type : Date}
+        - {code : dt-fim-licenca, name : data fim da licença', type : Date}
+        - {code : dt-ini-reconsid, name : data inicio da reconsideração, type : Date}
+        - {code : dt-fim-reconsid, name : data fim da reconsideração', type : Date}
+        - {code : nm-ato-legal, name : numero do ato legal, type : String}
+        - {code : dt-ini-ato-legal, name : data de inicio do ato legal, type: Date}
+        - {code : dt-pub-ato-legal, name : data publicação do ato legal, type: Date}
+    transition-form-fields  :
+        NV-CONC : 
+            dt-ini-licenca : [true, true, true, true]
+            dt-fim-licenca : [true, true, true, true]
+            dt-ini-reconsid: [false, false]
+            dt-fim-reconsid: [false, false]
+            nm-ato-legal:   [true, true, true, true]
+            dt-ini-ato-legal: [true, true, true, true]
+            dt-pub-ato-legal: [true, true, true, true]
+                
+            
+
